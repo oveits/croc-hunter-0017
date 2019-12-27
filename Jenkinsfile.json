@@ -1,0 +1,40 @@
+{
+  "app": {
+    "name": "croc-hunter",
+    "replicas": "3",
+    "cpu": "10m",
+    "memory": "128Mi",
+    "test": true,
+    "hostname": "crochunter.vocon-it.com"
+  },
+  "k8s_secret": {
+    "name": "croc-hunter-secrets"
+  },
+  "container_repo": {
+    "host": "docker.io",
+    "master_acct": "oveits",
+    "alt_acct": "oveits",
+    "jenkins_creds_id": "oveits_docker_hub",
+    "repo": "crochunter",
+    "dockeremail": ".",
+    "dockerfile": "./",
+    "image_scanning": false
+  },
+  "test_container_repo": {
+    "host": "docker.io",
+    "master_acct": "oveits",
+    "alt_acct": "oveits",
+    "jenkins_creds_id": "oveits_docker_hub",
+    "repo": "crochunter-tests",
+    "dockeremail": ".",
+    "dockerfile": "./tests/",
+    "image_scanning": false
+  },
+  "pipeline": {
+      "enabled": true,
+      "debug": true,
+      "library": {
+        "branch": "dev"
+      }
+  }
+}
